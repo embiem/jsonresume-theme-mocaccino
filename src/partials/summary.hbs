@@ -2,9 +2,9 @@
     {{#if summary}}
         <div class="container summary-container">
             {{> title value="Summary"}}
-            <p class="summary">
-                {{summary}}
-            </p>
+            <div class="summary">
+                {{{markdown summary}}}
+            </div>
         </div>
     {{/if}}
 {{/resume.basics}}

@@ -14,7 +14,7 @@ describe('jest-image-snapshot usage with an image received from puppeteer', () =
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const resumeJson = JSON.parse(fs.readFileSync(path.join(rootDir, 'resume.json')));
     const resumeHtml = render(resumeJson);

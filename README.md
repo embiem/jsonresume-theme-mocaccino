@@ -1,6 +1,13 @@
-# Macchiato Theme! ☕️+🥛
+# Mocaccino Theme! ☕️+🥛
 
-Macchiato it's a [JSON Resume](https://jsonresume.org/) theme based on [Theme Boilerplate](https://github.com/jsonresume/jsonresume-theme-boilerplate) and [Caffeine Theme](https://github.com/kelyvin/jsonresume-theme-caffeine).
+Mocaccino is a fork of the great [JSON Resume](https://jsonresume.org/) [Macchiato Theme](https://github.com/biosan/jsonresume-theme-macchiato).
+
+It has small additions like markdown support.
+
+I'll add more notes in this README at a later point (maybe). For now, here's the
+forked repo's README:
+
+---
 
 ## Why?
 
@@ -8,9 +15,7 @@ I wanted to build my own resume theme, so I decided to start from a theme I like
 
 I also wanted I simple environment, so I used the boilerplate provided by JSON Resume instead of using the awesome work done by [kelyvin](https://github.com/kelyvin/) for it's Caffeine Theme. If you are looking for a more complete environment take a look at the caffine theme.
 
-
-> ***Currently it doesn't have any major style difference from it's parent [Caffeine](https://github.com/kelyvin/jsonresume-theme-caffeine).***
-
+> **_Currently it doesn't have any major style difference from it's parent [Caffeine](https://github.com/kelyvin/jsonresume-theme-caffeine)._**
 
 ## Changes from Caffeine Theme
 
@@ -18,29 +23,30 @@ I also wanted I simple environment, so I used the boilerplate provided by JSON R
 
 - Simpler and less sofisticated development environment, the same as JSON Resume boilerplate. (Caffeine has live re-building and automatic page reloading)
 
-
 ### Visual differences
 
 - Add tags to projects and skills
 - Switch from `UPPERCASE` to `Capitalize` on most text
 
-
 ## Usage
 
 1. Download [JSON Resume CLI](https://jsonresume.org/)
-  ```
-  npm install -g resume-cli
-  ```
+
+```
+npm install -g resume-cli
+```
 
 2. Download the theme from [npm](https://www.npmjs.com/)
-  ```
-  npm install -g jsonresume-theme-macchiato
-  ```
+
+```
+npm install -g jsonresume-theme-macchiato
+```
 
 3. Use resume cli to build your resume
-  ```
-  resume export resume.html --theme macchiato
-  ```
+
+```
+resume export resume.html --theme macchiato
+```
 
 ### PDF output
 
@@ -60,8 +66,6 @@ Obviously you could write a very simple Node script to use the real Puppeteer an
 
 Also checkout [HackMyResume](https://github.com/hacksalot/HackMyResume), a powerful tool to build and analyze your JSON Resume.
 
-
 ## License
 
 Available under the [MIT license](http://mths.be/mit).
-
