@@ -10,7 +10,23 @@ handlebars.registerHelper({
   // Arguments: {address, city, subdivision, postalCode, countryCode}
   // formatAddress: (...args) => addressFormat(args).join(' '),
   formatAddress: (...args) => args.filter(arg => typeof arg !== 'object').join(' '),
-  formatDate: date => moment(date).format('MM/YYYY'),
+  formatDate: date => {
+    if (!date) return '';
+    const momentDate = moment(date);
+
+    // Check if the original date string contains only a year (4 digits)
+    if (/^\d{4}$/.test(date)) {
+      return momentDate.format('YYYY');
+    }
+
+    // Check if the original date string is year-month format (YYYY-MM)
+    if (/^\d{4}-\d{2}$/.test(date)) {
+      return momentDate.format('MM/YYYY');
+    }
+
+    // For full dates or other formats, default to MM/YYYY
+    return momentDate.format('MM/YYYY');
+  },
   lowercase: s => s.toLowerCase(),
   eq: (a, b) => a === b,
   markdown: text => (text ? new handlebars.SafeString(marked.parse(text)) : ''),
