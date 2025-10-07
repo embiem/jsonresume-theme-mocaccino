@@ -12,13 +12,19 @@ describe('jest-image-snapshot usage with an image received from puppeteer', () =
   let browser;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const resumeJson = JSON.parse(fs.readFileSync(path.join(rootDir, 'resume.json')));
     const resumeHtml = render(resumeJson);
     fs.writeFileSync(path.join(rootDir, 'resume.html'), resumeHtml);
   });
 
   it('works', async () => {
+    if (!browser) {
+      throw new Error('Browser failed to launch in beforeAll hook');
+    }
     const page = await browser.newPage();
     await page.goto(path.join('file://', __dirname, '/../../resume.html'));
     const image = await page.screenshot({
