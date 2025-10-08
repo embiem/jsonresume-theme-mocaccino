@@ -4,7 +4,7 @@
 
     {{#each resume.work}}
         <section class="item">
-            {{> section-header name=this.name }}
+            {{> section-header name=this.name showName=(isNewCompany this.name @index) }}
 
             {{#if position}}
             <h4>{{position}}</h4>

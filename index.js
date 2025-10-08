@@ -30,6 +30,11 @@ handlebars.registerHelper({
   lowercase: s => s.toLowerCase(),
   eq: (a, b) => a === b,
   markdown: text => (text ? new handlebars.SafeString(marked.parse(text)) : ''),
+  isNewCompany: (currentName, index, options) => {
+    if (index === 0) return true;
+    const previousEntry = options.data.root.resume.work[index - 1];
+    return !previousEntry || previousEntry.name !== currentName;
+  },
 });
 
 function render(resume) {
