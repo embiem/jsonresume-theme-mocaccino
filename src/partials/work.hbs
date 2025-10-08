@@ -4,10 +4,28 @@
 
     {{#each resume.work}}
         <section class="item">
-            {{> section-header name=this.name showName=(isNewCompany this.name @index) }}
+            {{#if (isNewCompany this.name @index)}}
+                {{> section-header name=this.name }}
 
-            {{#if position}}
-            <h4>{{position}}</h4>
+                {{#if position}}
+                <h4>{{position}}</h4>
+                {{/if}}
+            {{else}}
+                <div class="section-header clearfix">
+                    {{#if position}}
+                    <h4 class="pull-left">{{position}}</h4>
+                    {{/if}}
+                    <h5 class="italic pull-right">
+                        {{#if startDate}}
+                            <span class="startDate">{{formatDate startDate}}</span>
+                            {{#if endDate}}
+                            <span class="endDate"> - {{formatDate endDate}}</span>
+                            {{else}}
+                            <span class="endDate"> - Present</span>
+                            {{/if}}
+                        {{/if}}
+                    </h5>
+                </div>
             {{/if}}
 
             {{#if keywords.length}}
